@@ -1,0 +1,18 @@
+.divAlbumContainer{
+    display: flex;
+    justify-content: left;
+    align-items: left;  
+
+}
+.divAlbum {
+    
+    padding: 8px;
+    justify-content: left;
+    align-items: left; 
+    margin-top: 1%;
+    margin-left: 7%;
+    
+}
+
+
+

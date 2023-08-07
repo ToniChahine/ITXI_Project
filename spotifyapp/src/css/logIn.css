@@ -1,0 +1,54 @@
+.divAuthContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+
+.divAuthSearch {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 400px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.divAuthbtn {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  width: 90%;
+  cursor: pointer;
+  
+}
+
+
+.divAuthLogo {
+  
+  width: 9%;
+  margin-bottom: 2%;
+  margin-right: 1%;
+}
+
+
+
+@media (max-width: 768px) {
+  .divAuthbtn {
+    font-size: 24px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .divAuthbtn {
+    font-size: 20px;
+  }
+}
