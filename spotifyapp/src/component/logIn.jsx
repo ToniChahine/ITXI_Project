@@ -5,7 +5,7 @@ import SpotifyAuth from './spotifyAuth.jsx';
 export default function LogIn() {
   const navigate = useNavigate();
 
-  function handleLoginSuccess (accessToken) {
+  function handleLoginSuccess () {
     navigate('./artistSearch');
   };
 

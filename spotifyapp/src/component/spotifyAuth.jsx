@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
 import '../css/logIn.css';
-
 export default function SpotifyAuth ({ onLoginSuccess }){
-  
   
   async function getAuth()  {
     const clientId = '8657bd74b7bc48db850c74047b539989';

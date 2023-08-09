@@ -1,17 +1,22 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/searchBar.css';
-
 export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKeyy,artistFound,artistName,setArtistNamee}) {
-  
+ 
   const navigate=useNavigate();
   
-  function searchAlbum(artistName){
+  function searchAlbum(artistName,id){
+    localStorage.setItem('artistID',id);
+    localStorage.setItem('Name',artistName);
     setArtistNamee(artistName)
     console.log(artistName)
     navigate(link);
   }
+  const handleChange = (e) => {
+    setSearchKeyy(e.target.value);
+    searchArtist(e.target.value);
+    console.log(e.target.value)
+  };
 
   function goToBrowsingArtist(){
     setSearchKeyy(searchKey)
@@ -27,25 +32,27 @@ export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKe
       (<div  className='divContainer' style={{minHeight:'20vh'}}>
         <div className='divSearch'>
           <input className='divSearchInput' placeholder='Search for an artist...'  value={searchKey} onChange={onchange} />
-          <button className='divSearchButton' onClick={searchArtist}>
+          <button className='divSearchButton' onClick={()=>searchArtist(searchKey)}>
             <img className='divSearchLogo' src="./photo/loop-logo.jpeg" alt="logggo"/>
           </button>
         </div>
       </div>)
       :(
-      <div  className='divContainer' style={{minHeight:'80vh'}}>
+      <div  className='divContainer' >
         <div className='divSearch'>
-          <input className='divSearchInput' placeholder='Search for an artist...'  onChange={onchange} />
+        <div className="input-wrapper">
+          <input className='divSearchInput' placeholder='Search for an artist...'  onChange={handleChange} />
           <button className='divSearchButton' onClick={goToBrowsingArtist}>
             <img className='divSearchLogo' src="./photo/loop-logo.jpeg" alt="loop-logo"/>
           </button>
+          </div>
         </div>
      </div>)
       }
-      {artistFound&&
+      {!flag&&
         <section className='section-center'>
           {artistFound.map((artist)=>
-            <article className='single-div'  style={{cursor:'pointer'}} onClick={()=>searchAlbum(artist.name)} key ={artist.id}>
+            <article className='single-div'  style={{cursor:'pointer'}} onClick={()=>searchAlbum(artist.name,artist.id)} key ={artist.id}>
             <img  src={getImage(artist)} className='img' alt={artist.id}/>
             <div>
               <h5  style={{padding:'10px 0px 0px 30px'}}>{artist.name}</h5>

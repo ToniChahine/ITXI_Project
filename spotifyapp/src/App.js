@@ -10,7 +10,7 @@ import './App.css'
 export default function App() {
   const [searchKey, setSearchKey] = useState('')
   const [artistName, setArtistName] = useState('')
-
+ 
   function setSearchKeyy(key){
     setSearchKey(key);
   }

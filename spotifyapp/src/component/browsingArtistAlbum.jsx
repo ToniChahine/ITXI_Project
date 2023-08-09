@@ -3,43 +3,36 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/browsingArtistAlbum.css';
 import '../App.css';
-export default function BrowsingArtistAlbum({ artistName }) {
- 
-  const [albums, setAlbums] = useState([]);
 
+export default function BrowsingArtistAlbum({ artistName }) {
+  
+  const [albums, setAlbums] = useState([]);
+  
   useEffect(() => 
   {
     searchAlbum();
+    const data=JSON.parse(localStorage.getItem('album'))
+    if(data){
+      setAlbums(data) 
+    }
   }, []); 
 
   async function searchAlbum() {
     if(artistName.length > 0){
       try {
-        const { data } = await axios.get('https://api.spotify.com/v1/search', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-          params: {
-            q: artistName,
-            type: 'artist',
-          },
-        });
-
-        var artistID = data.artists.items[0].id;
-
+        var artistID = localStorage.getItem('artistID');
+        
         var artistAlbum = await axios.get(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
           params: {
             include_groups: 'album',
-            limit: 50,
             market: 'US',
           },
         });
         setAlbums(artistAlbum.data.items);
-        console.log(artistAlbum.data.items);
+        localStorage.setItem('album',JSON.stringify(artistAlbum.data.items))
       }
       catch (error) {
         console.error('Error occurred:', error);
@@ -53,7 +46,7 @@ export default function BrowsingArtistAlbum({ artistName }) {
     <>
       <div className='divAlbumContainer'>
         <div className='divAlbum'>
-          <h1>{artistName}</h1>
+          <h1>{localStorage.getItem('Name')}</h1>
           <h5 style={{color:'grey'}}>Albums</h5>
         </div>
       </div>
@@ -84,7 +77,6 @@ export default function BrowsingArtistAlbum({ artistName }) {
     return h
   }
     
-
   function getImage(album) {
     try {
       return album.images[0].url;
