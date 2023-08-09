@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKeyy,artistFound,artistName,setArtistNamee}) {
