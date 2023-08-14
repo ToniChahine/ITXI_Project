@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/" element={ <LogIn />}/>
         <Route path="/artistSearch" element={ <ArtistSearch searchKey={searchKey} setSearchKeyy={setSearchKeyy}/>}/>
         <Route path="/browsingArtist" element={ <BrowsingArtist searchKey={searchKey} setSearchKeyy={setSearchKeyy} artistName={artistName} setArtistNamee={setArtistNamee}/>}/>
-        <Route path="/browsingArtistAlbum" element={ <BrowsingArtistAlbum artistName={artistName} setArtistNamee={setArtistNamee}/>}/>
+        <Route path="/browsingArtistAlbum" element={ <BrowsingArtistAlbum artistName={localStorage.getItem('Name')} setArtistNamee={setArtistNamee}/>}/>
       </Routes>
     </BrowserRouter>
   );

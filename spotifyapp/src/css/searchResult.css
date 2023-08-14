@@ -5,3 +5,23 @@
 .search-result:hover {
   background-color: #efefef;
 }
+
+.result-content {
+  display: flex; /* Use flex display to arrange elements horizontally */
+  align-items: center; /* Align elements vertically in the center */
+  justify-content: space-between; /* Space elements evenly along the main axis */
+ 
+  
+}
+
+.result-content img {
+  /* Style for the image */
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  margin-left: 10px; /* Add some spacing between the text and image */
+}
+
+.result-content span {
+  /* Style for the text (artist name) */
+  font-size: 16px; /* Adjust the font size as needed */
+}

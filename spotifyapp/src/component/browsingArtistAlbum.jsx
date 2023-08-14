@@ -7,7 +7,7 @@ import '../App.css';
 export default function BrowsingArtistAlbum({ artistName }) {
   
   const [albums, setAlbums] = useState([]);
-  
+ 
   useEffect(() => 
   {
     searchAlbum();

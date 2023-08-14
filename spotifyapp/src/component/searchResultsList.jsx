@@ -6,7 +6,7 @@ export default function SearchResultsList ({ results ,link,setSearchKeyy,searchK
     return (
     <div className="results-list">
       {results.map((result, id) => {
-        return <SearchResult result={result.name} link={link} searchKey={searchKey} setSearchKeyy={setSearchKeyy} key={id} />;
+        return <SearchResult artist={result.name} result={result}  link={link} searchKey={searchKey} setSearchKeyy={setSearchKeyy} key={id} />;
       })}
     </div>
   );

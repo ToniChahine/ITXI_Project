@@ -9,8 +9,7 @@ export default function BrowsingArtist({searchKey,setSearchKeyy,artistName,setAr
   useEffect(()=>{
     searchArtist(searchKey);
   },[])
-
- 
+  
   return (
     <div>
         <SearchBar link='/browsingArtistAlbum' flag='' artistFound={artistFound}
