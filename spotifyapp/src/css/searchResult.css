@@ -1,19 +1,15 @@
-.search-result {
-    padding: 10px 20px;
-  }
-  
-.search-result:hover {
-  background-color: #efefef;
-}
 
 .result-content {
   display: flex; /* Use flex display to arrange elements horizontally */
   align-items: center; /* Align elements vertically in the center */
   justify-content: space-between; /* Space elements evenly along the main axis */
- 
-  
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px 20px;
 }
-
+.result-content:hover {
+  background-color: #efefef;
+}
 .result-content img {
   /* Style for the image */
   width: 50px; /* Adjust the width as needed */

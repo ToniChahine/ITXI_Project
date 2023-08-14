@@ -24,14 +24,13 @@ export default function SearchResult  ({result,link,setSearchKeyy,artist}) {
   }
     const navigate = useNavigate();
     return (
-      <div className="search-result" onClick={()=>searchAlbum(artist.name,artist.id)}>
-        <div className="result-content">
+      
+        <div className="result-content" onClick={()=>searchAlbum(artist.name,artist.id)}>
           <span>{artist}<br/>
             <div className='followers' >{numberWithCommas(result.followers.total)} {(result.followers.total==1)? 'follower':'followers' }</div>
           </span>
           <img src={getImage(result)} className="img" alt={result.id} />
         </div>
-      </div>
-
+      
   );
 };
