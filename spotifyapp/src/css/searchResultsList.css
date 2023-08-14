@@ -1,7 +1,6 @@
 .results-list {
     width: 100%;
     background-color: white;
-    
     flex-direction: column;
     max-height: 300px;
     overflow-y: auto;

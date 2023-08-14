@@ -17,7 +17,7 @@ export default function SearchResult  ({result,link,setSearchKeyy,artist}) {
     const formattedNumber = decimalPart ? `${formattedIntegerPart}.${decimalPart}` : formattedIntegerPart;
     return formattedNumber;
   } 
-  function searchAlbum(artistName,id){
+  function searchAlbum(){
     localStorage.setItem('artistID',result.id);
     localStorage.setItem('Name',artist);
     navigate('/browsingArtistAlbum');
@@ -25,7 +25,7 @@ export default function SearchResult  ({result,link,setSearchKeyy,artist}) {
     const navigate = useNavigate();
     return (
       
-        <div className="result-content" onClick={()=>searchAlbum(artist.name,artist.id)}>
+        <div className="result-content" onClick={()=>searchAlbum()}>
           <span>{artist}<br/>
             <div className='followers' >{numberWithCommas(result.followers.total)} {(result.followers.total==1)? 'follower':'followers' }</div>
           </span>
