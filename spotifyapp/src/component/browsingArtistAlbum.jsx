@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState,useRef} from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/browsingArtistAlbum.css';
@@ -7,11 +7,11 @@ import '../App.css';
 export default function BrowsingArtistAlbum() {
   
   const [albums, setAlbums] = useState([]);
-  let isMounted = true;
+  const isMounted = useRef('true');
  
   useEffect(() => 
   {
-    if(isMounted){
+    if(isMounted.current){
       searchAlbum();
       const data=JSON.parse(localStorage.getItem('album'))
       if(data){
@@ -19,7 +19,7 @@ export default function BrowsingArtistAlbum() {
       }
     }
     return () => {
-      isMounted = false;
+      isMounted.current = '';
     };
   }, []); 
 
