@@ -1,6 +1,5 @@
 import Header from "./component/header";
 import LogIn from './component/logIn';
-import ArtistSearch from "./component/artistSearch";  
 import BrowsingArtist from './component/browsingArtist'; 
 import BrowsingArtistAlbum from './component/browsingArtistAlbum'; 
 import { useState } from "react";
@@ -19,7 +18,6 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={ <LogIn />}/>
-        <Route path="/artistSearch" element={ <ArtistSearch searchKey={searchKey} setSearchKeyy={setSearchKeyy}/>}/>
         <Route path="/browsingArtist" element={ <BrowsingArtist searchKey={searchKey} setSearchKeyy={setSearchKeyy} />}/>
         <Route path="/browsingArtistAlbum" element={ <BrowsingArtistAlbum />}/>
       </Routes>

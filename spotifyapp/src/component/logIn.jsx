@@ -6,7 +6,7 @@ export default function LogIn() {
   const navigate = useNavigate();
 
   function handleLoginSuccess () {
-    navigate('./artistSearch');
+    navigate('./browsingArtist');
   };
 
   return (

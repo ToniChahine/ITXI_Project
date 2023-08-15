@@ -9,7 +9,6 @@ export default function BrowsingArtistAlbum() {
   const [albums, setAlbums] = useState([]);
   let isMounted = true;
  
- 
   useEffect(() => 
   {
     if(isMounted){
@@ -22,12 +21,9 @@ export default function BrowsingArtistAlbum() {
     return () => {
       isMounted = false;
     };
-
-
   }, []); 
 
   async function searchAlbum() {
-   
       try {
         var artistID = localStorage.getItem('artistID');
         
@@ -46,13 +42,8 @@ export default function BrowsingArtistAlbum() {
       catch (error) {
         console.error('Error occurred:', error);
       }
-    
-  
-}
+    }
  
-   
- 
-
   return (
     <>
       <div className='divAlbumContainer'>
@@ -68,7 +59,6 @@ export default function BrowsingArtistAlbum() {
             <div>
               <h5 style={{ padding:'10px 0px 0px 30px'}}>{album.name}</h5>
               <div className='single-div-detail' style={{padding:'0px 0px 0px 30px'}}>
-                
                 {artistNames(album.artists)}</div>
               <div className='single-div-detail' style={{padding:'20px 0px 0px 30px'}}>{album.release_date}</div>
               <div className='single-div-detail' style={{padding:'0px 0px 10px 30px'}}>{album.total_tracks} tracks </div>

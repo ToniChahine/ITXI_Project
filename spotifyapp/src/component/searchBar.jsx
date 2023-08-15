@@ -10,46 +10,22 @@ export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKe
     localStorage.setItem('Name',artistName);
     navigate(link);
   }
-  const handleChange = (e) => {
-    setSearchKeyy(e.target.value);
-    searchArtist(e.target.value);
-  };
 
-  function goToBrowsingArtist(){
-    setSearchKeyy(searchKey)
-    navigate(link);
-  }
   function onchange(e)
   {
     setSearchKeyy(e.target.value);
-   
+    searchArtist(e.target.value);
   }
   return (
     <div > 
-      {!flag?
-      (<div  className='divContainer' style={{minHeight:'20vh'}}>
+      <div  className='divContainer' style={{minHeight:'20vh'}}>
         <div className='divSearch'>
-        <div className="input-wrapper">
+         <div className="input-wrapper">
           <input className='divSearchInput' placeholder='Search for an artist...'  value={searchKey} onChange={onchange} />
-          <button className='divSearchButton' onClick={()=>searchArtist(searchKey)}>
-            <img className='divSearchLogo' src="./photo/loop-logo.jpeg" alt="logggo"/>
-          </button>
+         </div>
         </div>
-        </div>
-      </div>)
-      :(
-      <div  className='divContainer' >
-        <div className='divSearch'>
-        <div className="input-wrapper">
-          <input className='divSearchInput' placeholder='Search for an artist...'  onChange={handleChange} />
-          <button className='divSearchButton' onClick={goToBrowsingArtist}>
-            <img className='divSearchLogo' src="./photo/loop-logo.jpeg" alt="loop-logo"/>
-          </button>
-          </div>
-        </div>
-     </div>)
-      }
-      {!flag&&
+      </div>
+      
         <section className='section-center'>
           {artistFound.map((artist)=>
             <article className='single-div'  style={{cursor:'pointer'}} onClick={()=>searchAlbum(artist.name,artist.id)} key ={artist.id}>
@@ -62,7 +38,6 @@ export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKe
           </article>
           )}
         </section>
-      }
     </div> 
   )
 
