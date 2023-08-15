@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/header.css'
-export default function Header  () {
+export default function Header () {
   
   return (
     <header className='header'>

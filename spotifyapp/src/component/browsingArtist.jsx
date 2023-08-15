@@ -4,17 +4,23 @@ import '../App.css';
 import SearchFunction from './searchFunction';
 import '../css/searchBar.css';
   
-export default function BrowsingArtist({searchKey,setSearchKeyy,artistName,setArtistNamee}) { 
+export default function BrowsingArtist({searchKey,setSearchKeyy}) { 
   const { artistFound, searchArtist } = SearchFunction();
+  let isMounted = true;
+ 
   useEffect(()=>{
-    searchArtist(searchKey);
+    if(isMounted){
+      searchArtist(searchKey);}
+    return () => {
+      isMounted = false;
+    };
   },[])
   
   return (
     <div>
         <SearchBar link='/browsingArtistAlbum' flag='' artistFound={artistFound}
         searchKey={searchKey} setSearchKeyy={setSearchKeyy} searchArtist={searchArtist}
-        artistName={artistName} setArtistNamee={setArtistNamee}/>
+        />
     </div>
   )
 }

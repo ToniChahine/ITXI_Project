@@ -1,7 +1,7 @@
 import "../css/searchResult.css";
 import { useNavigate } from 'react-router-dom';
 
-export default function SearchResult  ({result,link,setSearchKeyy,artist}) {
+export default function SearchResult  ({result,artist}) {
   function getImage(result) {
     try{
       return result.images[0].url;
@@ -27,7 +27,7 @@ export default function SearchResult  ({result,link,setSearchKeyy,artist}) {
       
         <div className="result-content" onClick={()=>searchAlbum()}>
           <span>{artist}<br/>
-            <div className='followers' >{numberWithCommas(result.followers.total)} {(result.followers.total==1)? 'follower':'followers' }</div>
+            <div className='followers' >{numberWithCommas(result.followers.total)} {(result.followers.total===1)? 'follower':'followers' }</div>
           </span>
           <img src={getImage(result)} className="img" alt={result.id} />
         </div>

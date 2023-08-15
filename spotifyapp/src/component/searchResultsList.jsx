@@ -1,13 +1,13 @@
 import "../css/searchResultsList.css";
 import SearchResult from "./searchResult";
 
-export default function SearchResultsList ({ results ,link,setSearchKeyy,searchKey}) {
+export default function SearchResultsList ({ results }) {
 
     return (
     <div className="results-list">
       {results.map((result, id) => {
-        return <SearchResult artist={result.name} result={result}  link={link} searchKey={searchKey} setSearchKeyy={setSearchKeyy} key={id} />;
+        return <SearchResult artist={result.name} result={result}  key={id} />;
       })}
     </div>
   );
-};
+}; 

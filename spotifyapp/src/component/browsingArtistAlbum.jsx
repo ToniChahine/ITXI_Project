@@ -4,21 +4,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/browsingArtistAlbum.css';
 import '../App.css';
 
-export default function BrowsingArtistAlbum({ artistName }) {
+export default function BrowsingArtistAlbum() {
   
   const [albums, setAlbums] = useState([]);
+  let isMounted = true;
+ 
  
   useEffect(() => 
   {
-    searchAlbum();
-    const data=JSON.parse(localStorage.getItem('album'))
-    if(data){
-      setAlbums(data) 
+    if(isMounted){
+      searchAlbum();
+      const data=JSON.parse(localStorage.getItem('album'))
+      if(data){
+        setAlbums(data) 
+      }
     }
+    return () => {
+      isMounted = false;
+    };
+
+
   }, []); 
 
   async function searchAlbum() {
-    if(artistName.length > 0){
+   
       try {
         var artistID = localStorage.getItem('artistID');
         
@@ -37,11 +46,13 @@ export default function BrowsingArtistAlbum({ artistName }) {
       catch (error) {
         console.error('Error occurred:', error);
       }
-    }
-  else{
-    return
-  }
+    
+  
 }
+ 
+   
+ 
+
   return (
     <>
       <div className='divAlbumContainer'>
@@ -84,4 +95,6 @@ export default function BrowsingArtistAlbum({ artistName }) {
       return 'image-not-found.jpg';
     }
   }
+
 }
+

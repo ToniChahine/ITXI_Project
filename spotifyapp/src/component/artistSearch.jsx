@@ -15,7 +15,7 @@ export default function ArtistSearch({searchKey,setSearchKeyy}) {
           <div className='divContainer'>
             {artistFound && artistFound.length > 0 && searchKey.length >0&&
             <div className='divList'> 
-              <SearchResultsList link={link} setSearchKeyy={setSearchKeyy} searchKey={searchKey} results={artistFound} />
+              <SearchResultsList  results={artistFound} />
             </div>
           }
         </div>

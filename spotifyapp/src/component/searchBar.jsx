@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKeyy,artistFound,artistName,setArtistNamee}) {
+export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKeyy,artistFound}) {
  
   const navigate=useNavigate();
   
@@ -22,6 +22,7 @@ export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKe
   function onchange(e)
   {
     setSearchKeyy(e.target.value);
+   
   }
   return (
     <div > 
@@ -55,7 +56,7 @@ export default function SearchBar({link,flag,searchArtist, searchKey,setSearchKe
             <img  src={getImage(artist)} className='img' alt={artist.id}/>
             <div>
               <h5  style={{padding:'10px 0px 0px 30px'}}>{artist.name}</h5>
-              <div className='followers' style={{padding:'0px 0px 0px 30px'}}>{numberWithCommas(artist.followers.total)} {(artist.followers.total==1)? 'follower':'followers'  }</div>
+              <div className='followers' style={{padding:'0px 0px 0px 30px'}}>{numberWithCommas(artist.followers.total)} {(artist.followers.total===1)? 'follower':'followers'  }</div>
               {rating(artist.popularity)}
             </div>
           </article>

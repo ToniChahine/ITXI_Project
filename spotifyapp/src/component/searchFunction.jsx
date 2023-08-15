@@ -21,12 +21,13 @@ export default function SearchFunction() {
         var artists = data.artists.items;
         localStorage.setItem('artistID', data.artists.items[0].id);
         setArtistFound(artists.filter(item => item.name.toLowerCase().includes(searchKey.toLowerCase())));
-    console.log(artists)    
+    
     } catch {
         console.error('Error while fetching data');
       }
-    } else {
-     return
+    } 
+    else {
+      return
     }
   }
 

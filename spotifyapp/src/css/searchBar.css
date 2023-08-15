@@ -18,12 +18,10 @@
 }
   
 .divSearchInput {
-   
   padding: 4px;
   border: none;
   outline: none;
   width: 100%; 
-  margin-left: 10px;
   font-size: large;
 }
   
