@@ -1,12 +1,9 @@
-
-.header { 
-  display:flex;
+.header {
+  display: flex;
   background-color: #ccc;
   padding: 0px;
   font-size: 34px;
   border: 1px solid #616060;
-  
-
 }
 
 .header-text {
@@ -19,13 +16,11 @@
 @media (max-width: 768px) {
   .header {
     font-size: 20px;
-    
   }
 }
 
 @media (max-width: 576px) {
   .header {
     font-size: 18px;
-    
   }
 }
