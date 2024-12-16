@@ -6,14 +6,15 @@
   font-size: 34px;
   border: 1px solid #616060;
   
+
 }
 
 .header-text {
   margin-top: 1%;
   margin-left: 7.5%;
   margin-bottom: 1%;
-}
 
+}
 
 @media (max-width: 768px) {
   .header {
@@ -21,7 +22,6 @@
     
   }
 }
-
 
 @media (max-width: 576px) {
   .header {
